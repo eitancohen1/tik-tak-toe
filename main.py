@@ -19,34 +19,35 @@ def check_position(p):
         return 1
     else:
         return 0
-
+# b- index in board
+# y- the player mark
 def fill_board(b,y):
     board[b-1]=y
-    w=0
+    
     
 def chack_game():
     if  chek_rull(board)==1:
         print('x player won')
-        q=0
-        restart(q)
+        
+        restart()
         
         
     elif chek_rull(board)==2:
         print('o player won')
-        q=0
-        restart(q)
+        
+        restart()
     
     elif chek_rull(board)==3:
         print('tiko')
-        q=0
-        restart(q)
         
-def restart(q):
-    r=input("do you wont play again: ")
+        restart()
+        
+def restart():
+    r=input("do you wont play again y/n: ")
     if r=="n":
-        print("goodbay")
         exit()
     else:
+        os.system('cls')
         main("y")
         
 
@@ -102,13 +103,14 @@ def chek_rull(r):
 
 def main(a):
     
+    print("Welcome to x and o game")
     global board
     board=[1,2,3,4,5,6,7,8,9]
     
     print_board(board)
     
     while a=="y":
-    
+        #xp - x position
         xp=input("Enter position for x: ")
         
         while  check_position(xp):
@@ -116,11 +118,10 @@ def main(a):
         xp=int(xp)
         
         while board[xp-1]=='x'or board[xp-1]=='o':
-            xp=int(input('The place is already occupied: '))
+            xp=int(input('The place is already occupied try x again: '))
         
         fill_board(xp,'x')
-        print_board(board)
-        os.system('clear')
+        os.system('cls')
         print_board(board)
         chack_game()
     
@@ -132,15 +133,17 @@ def main(a):
         op=int(op)
         
         while board[op-1]=='x'or board[op-1]=='o':
-            op=int(input('The place is already occupied: '))
+            op=int(input('The place is already occupied try o again: '))
             
         fill_board(op,'o')
-        print_board(board)
-        os.system('clear')
+        os.system('cls')
         print_board(board)
         chack_game()
 
-
-print("Welcome to x and o game")
 main("y")
+
+
+#op - o position
+#p -position
+
 
