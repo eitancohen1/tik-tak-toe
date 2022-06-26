@@ -13,7 +13,7 @@ def print_board(board):
             print()
             print('-----------------')
             cut=1   
-
+#p -position
 def check_position(p):
     if not p.isdigit():
         return 1
@@ -125,7 +125,7 @@ def main(a):
         print_board(board)
         chack_game()
     
-        
+        #op - o position
         op=input("Enter position for o: ")
         
         while  check_position(op):
@@ -143,7 +143,5 @@ def main(a):
 main("y")
 
 
-#op - o position
-#p -position
 
 
